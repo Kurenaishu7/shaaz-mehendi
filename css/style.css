@@ -1,0 +1,1581 @@
+
+/* =========================================
+   SHAAZ MEHENDI
+   Complete Website Stylesheet
+========================================= */
+
+/* GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+
+/* =========================================
+   1. ROOT VARIABLES
+========================================= */
+
+:root {
+    --green: #123D30;
+    --green-light: #1C4D3D;
+    --green-dark: #09291F;
+
+    --maroon: #702638;
+    --cream: #F5EFE3;
+    --cream-light: #FBF8F1;
+
+    --gold: #B99A63;
+    --gold-light: #D5BC8B;
+
+    --dark: #17251F;
+    --white: #FFFFFF;
+
+    --heading: 'Cormorant Garamond', serif;
+    --body: 'DM Sans', sans-serif;
+}
+
+
+/* =========================================
+   2. GLOBAL RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: var(--body);
+    background: var(--cream-light);
+    color: var(--dark);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+}
+
+::selection {
+    background: var(--green);
+    color: white;
+}
+
+
+/* =========================================
+   3. HEADER AND NAVIGATION
+========================================= */
+
+.site-header {
+    width: 100%;
+    background: var(--cream-light);
+    border-bottom: 1px solid rgba(185, 154, 99, 0.25);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    max-width: 1400px;
+    min-height: 82px;
+    margin: auto;
+    padding: 0 7%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--heading);
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--green);
+    text-decoration: none;
+    letter-spacing: 1.5px;
+}
+
+.logo span {
+    color: var(--maroon);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 38px;
+}
+
+.nav-links a {
+    position: relative;
+    text-decoration: none;
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -7px;
+    left: 0;
+    background: var(--gold);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--maroon);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none;
+    border: none;
+    background: none;
+    color: var(--green);
+    font-size: 27px;
+    cursor: pointer;
+}
+
+/* =================================
+   PREMIUM MOBILE NAVIGATION
+================================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        min-height: 72px;
+        padding: 0 5%;
+        position: relative;
+    }
+
+    .logo {
+        font-size: 26px;
+        position: relative;
+        z-index: 1002;
+    }
+
+    .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        font-size: 28px;
+        position: relative;
+        z-index: 1002;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+
+        background: var(--cream-light);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        visibility: hidden;
+
+        border-bottom: 1px solid transparent;
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.06);
+
+        transition:
+            max-height 0.4s ease,
+            opacity 0.3s ease,
+            padding 0.3s ease,
+            visibility 0.3s ease;
+    }
+
+    .nav-links.active {
+        max-height: 400px;
+        padding: 15px 0;
+        opacity: 1;
+        visibility: visible;
+        border-bottom-color: rgba(185, 154, 99, 0.3);
+    }
+
+    .nav-links a {
+        width: 100%;
+        text-align: center;
+        padding: 16px 0;
+        font-size: 13px;
+    }
+
+    .nav-links a::after {
+        display: none;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+        background: rgba(185, 154, 99, 0.09);
+    }
+}
+
+
+/* =========================================
+   4. BUTTONS
+========================================= */
+
+.btn {
+    display: inline-block;
+    padding: 15px 28px;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: var(--green);
+    color: white;
+    border: 1px solid var(--green);
+}
+
+.btn-primary:hover {
+    background: var(--maroon);
+    border-color: var(--maroon);
+    transform: translateY(-3px);
+}
+
+.btn-secondary {
+    border: 1px solid var(--gold);
+    color: var(--green);
+    background: transparent;
+}
+
+.btn-secondary:hover {
+    background: var(--gold);
+    color: white;
+}
+
+.text-link {
+    display: inline-block;
+    margin-top: 25px;
+    color: var(--maroon);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+
+/* =========================================
+   5. HOMEPAGE HERO
+========================================= */
+
+.hero {
+    min-height: 620px;
+    background: var(--green);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+    padding: 65px 8%;
+    gap: 55px;
+}
+
+.hero-content {
+    color: var(--cream);
+    max-width: 600px;
+}
+
+.eyebrow {
+    color: var(--gold);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.hero-content h1 {
+    font-family: var(--heading);
+    font-size: clamp(52px, 6vw, 82px);
+    font-weight: 400;
+    line-height: 1.05;
+    margin: 22px 0;
+}
+
+.hero-content h1 em {
+    color: var(--gold-light);
+    font-weight: 400;
+}
+
+.hero-content > p:not(.eyebrow) {
+    max-width: 450px;
+    color: #E4E0D4;
+    font-size: 14px;
+    line-height: 2;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.hero .btn-primary {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--green-dark);
+}
+
+.hero .btn-primary:hover {
+    background: var(--cream);
+    border-color: var(--cream);
+}
+
+.hero .btn-secondary {
+    color: var(--cream);
+    border-color: var(--gold);
+}
+
+.hero .btn-secondary:hover {
+    background: var(--gold);
+    color: var(--green-dark);
+}
+
+.hero-image {
+    width: 100%;
+    height: 490px;
+    overflow: hidden;
+    border: 8px solid rgba(255, 255, 255, 0.08);
+    outline: 1px solid var(--gold);
+    outline-offset: 7px;
+}
+
+.hero-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+/* =========================================
+   6. INTRODUCTION
+========================================= */
+
+.intro-section {
+    max-width: 900px;
+    margin: auto;
+    padding: 105px 25px;
+    text-align: center;
+}
+
+.intro-section h2 {
+    font-family: var(--heading);
+    font-size: clamp(38px, 5vw, 55px);
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--green);
+    margin: 18px 0;
+}
+
+.intro-section h2 em {
+    color: var(--maroon);
+}
+
+.intro-section > p:not(.eyebrow) {
+    max-width: 680px;
+    margin: 0 auto;
+    color: #6B6B60;
+    font-size: 14px;
+    line-height: 2;
+}
+
+
+/* =========================================
+   7. FEATURED COLLECTIONS
+========================================= */
+
+.featured-section {
+    padding: 90px 7%;
+    background: #EFE7D8;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-heading h2 {
+    font-family: var(--heading);
+    font-size: clamp(38px, 5vw, 55px);
+    font-weight: 500;
+    color: var(--green);
+    margin: 12px 0;
+}
+
+.section-heading h2 em {
+    color: var(--maroon);
+}
+
+.section-heading > p:last-child {
+    color: #777166;
+    font-size: 13px;
+}
+
+.featured-grid {
+    max-width: 1250px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.featured-card {
+    position: relative;
+    display: block;
+    background: white;
+    overflow: hidden;
+    text-decoration: none;
+    box-shadow: 0 5px 20px rgba(20, 30, 20, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featured-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 12px 28px rgba(20, 30, 20, 0.15);
+}
+
+.featured-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.featured-card:hover img {
+    transform: scale(1.04);
+}
+
+.featured-card-content {
+    padding: 19px 15px 22px;
+    text-align: center;
+}
+
+.featured-card-content h3 {
+    font-family: var(--heading);
+    font-size: 24px;
+    color: var(--green);
+    font-weight: 600;
+}
+
+.featured-card-content p {
+    font-size: 11px;
+    color: #81786B;
+    margin-top: 5px;
+}
+
+.section-button {
+    text-align: center;
+    margin-top: 45px;
+}
+
+
+/* =========================================
+   8. CONTACT SECTION
+========================================= */
+
+.contact-section {
+    background: var(--green);
+    color: var(--cream);
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.contact-section h2 {
+    font-family: var(--heading);
+    font-size: clamp(38px, 5vw, 58px);
+    font-weight: 400;
+    margin: 15px 0;
+}
+
+.contact-section h2 em {
+    color: var(--gold-light);
+}
+
+.contact-section > p:not(.eyebrow) {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    color: #E1DCCF;
+    font-size: 13px;
+    line-height: 2;
+}
+
+.contact-section .btn {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--green-dark);
+}
+
+.contact-section .btn:hover {
+    background: var(--cream);
+    border-color: var(--cream);
+}
+
+
+/* =========================================
+   9. FOOTER
+========================================= */
+
+.site-footer {
+    background: var(--green-dark);
+    color: #DCD5C7;
+    text-align: center;
+    padding: 35px 20px;
+}
+
+.site-footer p:first-child {
+    font-family: var(--heading);
+    font-size: 25px;
+    color: var(--gold-light);
+    letter-spacing: 2px;
+}
+
+.site-footer p {
+    font-size: 11px;
+    margin: 5px 0;
+}
+
+
+/* =========================================
+   10. GALLERY PAGE
+========================================= */
+
+.gallery-hero {
+    background: var(--green);
+    color: var(--cream);
+    text-align: center;
+    padding: 105px 20px 95px;
+}
+
+.gallery-hero h1 {
+    font-family: var(--heading);
+    font-size: clamp(48px, 6vw, 70px);
+    font-weight: 400;
+    margin: 12px 0;
+}
+
+.gallery-hero h1 em {
+    color: var(--gold-light);
+}
+
+.gallery-hero > p:last-child {
+    color: #E1DCCF;
+    font-size: 13px;
+}
+
+.gallery-collection {
+    padding: 75px 7%;
+    max-width: 1450px;
+    margin: auto;
+}
+
+.category-menu {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 35px;
+}
+
+.category-card {
+    display: block;
+    padding: 12px;
+    background: white;
+    border: 1px solid #E5D9C5;
+    text-decoration: none;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(25, 35, 27, 0.07);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(25, 35, 27, 0.13);
+}
+
+.category-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: center;
+}
+
+.category-card span {
+    display: block;
+    margin-top: 18px;
+    font-family: var(--heading);
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--green);
+}
+
+.category-card small {
+    display: block;
+    margin: 3px 0 12px;
+    color: #8B7B61;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.bridal-card {
+    border: 1px solid var(--gold);
+    background: #FBF5E9;
+}
+
+.bridal-card span {
+    color: var(--maroon);
+}
+
+.bridal-card small {
+    color: #946D36;
+}
+
+
+/* =========================================
+   11. OLD SINGLE-PAGE GALLERY SUPPORT
+========================================= */
+
+.gallery-view {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.back-to-categories {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--green);
+    padding: 12px 20px;
+    margin-bottom: 35px;
+    cursor: pointer;
+    font-family: var(--body);
+    transition: background 0.3s ease;
+}
+
+.back-to-categories:hover {
+    background: #EEE4D3;
+}
+
+.gallery-category {
+    margin-bottom: 60px;
+}
+
+.gallery-category h2 {
+    font-family: var(--heading);
+    font-size: 38px;
+    color: var(--green);
+    margin-bottom: 25px;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.photo-grid img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    height: auto;
+    object-fit: cover;
+    border: 5px solid #FFFDF8;
+    outline: 1px solid #E3D7C3;
+    border-radius: 4px;
+    box-shadow: 0 5px 18px rgba(25, 35, 27, 0.10);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-grid img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(25, 35, 27, 0.18);
+}
+
+.bridal-gallery {
+    background: #F8F1E5;
+    border: 1px solid var(--gold);
+    padding: 30px;
+}
+
+.bridal-gallery h2 {
+    color: var(--maroon);
+    text-align: center;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 18px;
+}
+
+.bridal-gallery .photo-grid img {
+    border: 5px solid #FFF9EC;
+    outline: 1px solid var(--gold);
+}
+
+
+/* =========================================
+   12. COLLECTION PAGE INTRODUCTION
+========================================= */
+
+.collection-hero {
+    background: var(--green);
+    color: var(--cream);
+    text-align: center;
+    padding: 100px 20px 85px;
+    border-bottom: 3px solid var(--gold);
+}
+
+.collection-hero h1 {
+    font-family: var(--heading);
+    font-size: clamp(38px, 6vw, 64px);
+    font-weight: 500;
+    margin: 15px 0;
+}
+
+.collection-hero > p:last-child {
+    color: #E4D8C5;
+    font-size: 14px;
+}
+
+.collection-shortcuts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 25px 15px;
+    background: #F8F3E9;
+    border-bottom: 1px solid #E8DECE;
+}
+
+.collection-shortcuts a {
+    color: var(--green);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 0.8px;
+    padding: 10px 17px;
+    border: 1px solid #D8C8AD;
+    transition: 0.3s ease;
+}
+
+.collection-shortcuts a:hover {
+    background: var(--green);
+    color: white;
+}
+
+.collection-content {
+    padding: 65px 7%;
+    max-width: 1450px;
+    margin: auto;
+}
+
+.collection-photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.collection-photo-grid img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    padding: 6px;
+    background: #FFFDF8;
+    border: 1px solid #E3D5BD;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.collection-photo-grid img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.14);
+}
+
+
+/* =========================================
+   13. OTHER COLLECTIONS
+========================================= */
+
+.other-collections-section {
+    background: #F7F1E6;
+    text-align: center;
+    padding: 75px 20px;
+}
+
+.other-collections-section h2 {
+    font-family: var(--heading);
+    font-size: clamp(30px, 4vw, 42px);
+    color: var(--green);
+    margin: 12px 0 30px;
+}
+
+.other-collections {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin: 25px auto 35px;
+    max-width: 900px;
+}
+
+.other-collection-link {
+    display: inline-block;
+    color: var(--green);
+    text-decoration: none;
+    border: 1px solid var(--gold);
+    padding: 13px 20px;
+    font-size: 13px;
+    transition: 0.3s ease;
+}
+
+.other-collection-link:hover {
+    background: var(--green);
+    color: white;
+}
+
+.back-to-gallery {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--maroon);
+    text-decoration: none;
+    font-size: 13px;
+}
+
+
+/* =========================================
+   14. LIGHTBOX IMAGE PREVIEW
+========================================= */
+
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(10, 20, 15, 0.94);
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 85vh;
+    object-fit: contain;
+    border: 5px solid #FFFDF8;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 42px;
+    cursor: pointer;
+}
+
+
+/* =========================================
+   15. TABLET RESPONSIVE
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .hero {
+        gap: 35px;
+        padding: 55px 6%;
+    }
+
+    .hero-image {
+        height: 420px;
+    }
+
+    .featured-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .collection-photo-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+    }
+
+    .photo-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* =========================================
+   16. MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        min-height: 70px;
+        padding: 0 20px;
+    }
+
+    .logo {
+        font-size: 26px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: var(--cream-light);
+        padding: 25px 20px 30px;
+        flex-direction: column;
+        align-items: center;
+        gap: 23px;
+        border-bottom: 1px solid var(--gold);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.06);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 55px 22px 65px;
+        gap: 40px;
+    }
+
+    .hero-content {
+        text-align: center;
+        margin: auto;
+    }
+
+    .hero-content h1 {
+        font-size: 55px;
+    }
+
+    .hero-content > p:not(.eyebrow) {
+        margin: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-image {
+        height: 420px;
+        max-width: 480px;
+        margin: auto;
+    }
+
+    .intro-section {
+        padding: 75px 22px;
+    }
+
+    .featured-section {
+        padding: 70px 18px;
+    }
+
+    .featured-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .featured-card-content {
+        padding: 13px 8px 17px;
+    }
+
+    .featured-card-content h3 {
+        font-size: 20px;
+    }
+
+    .featured-card-content p {
+        font-size: 10px;
+    }
+
+    .contact-section {
+        padding: 75px 20px;
+    }
+
+    .gallery-hero {
+        padding: 75px 18px;
+    }
+
+    .gallery-hero h1 {
+        font-size: 46px;
+    }
+
+    .gallery-collection {
+        padding: 45px 16px;
+    }
+
+    .category-menu {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 13px;
+    }
+
+    .category-card {
+        padding: 8px;
+    }
+
+    .category-card img {
+        aspect-ratio: 3 / 4;
+    }
+
+    .category-card span {
+        font-size: 19px;
+        line-height: 1.2;
+        margin-top: 12px;
+    }
+
+    .category-card small {
+        font-size: 9px;
+        letter-spacing: 0.5px;
+    }
+
+    .collection-hero {
+        padding: 70px 18px;
+    }
+
+    .collection-shortcuts {
+        gap: 8px;
+        padding: 18px 10px;
+    }
+
+    .collection-shortcuts a {
+        padding: 9px 12px;
+        font-size: 11px;
+    }
+
+    .collection-photo-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .collection-photo-grid img {
+        padding: 4px;
+    }
+
+    .collection-content {
+        padding: 35px 12px;
+    }
+
+    .other-collections-section {
+        padding: 55px 15px;
+    }
+
+    .other-collection-link {
+        padding: 11px 13px;
+        font-size: 12px;
+    }
+
+    .photo-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .photo-grid img {
+        border-width: 3px;
+    }
+
+    .gallery-category h2 {
+        font-size: 29px;
+    }
+
+    .bridal-gallery {
+        padding: 16px 10px;
+    }
+
+    .lightbox {
+        padding: 12px;
+    }
+
+    .lightbox img {
+        max-width: 96%;
+        max-height: 80vh;
+    }
+
+    .lightbox-close {
+        top: 10px;
+        right: 15px;
+    }
+}
+
+
+/* =========================================
+   17. SMALL PHONES
+========================================= */
+
+@media (max-width: 380px) {
+
+    .hero-content h1 {
+        font-size: 46px;
+    }
+
+    .hero-image {
+        height: 340px;
+    }
+
+    .featured-grid {
+        gap: 10px;
+    }
+
+    .category-card span {
+        font-size: 16px;
+    }
+
+    .btn {
+        padding: 13px 18px;
+        font-size: 10px;
+    }
+}
+
+
+/* =========================================
+   18. GENERAL ANIMATIONS
+========================================= */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content,
+.intro-section,
+.section-heading {
+    animation: fadeUp 0.8s ease both;
+}
+
+
+/* =========================================
+   END OF SHAAZ MEHENDI STYLESHEET
+========================================= */
+
+/* ==============================
+   REVIEWS PAGE
+============================== */
+
+.reviews-hero {
+    text-align: center;
+    padding: 100px 20px 75px;
+    background: var(--cream);
+}
+
+.reviews-hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(38px, 6vw, 64px);
+    color: var(--green);
+    margin: 15px 0;
+}
+
+.reviews-hero p:not(.section-label) {
+    max-width: 650px;
+    margin: 0 auto;
+    color: #6f6a60;
+    line-height: 1.8;
+}
+
+.reviews-section {
+    padding: 75px 7%;
+    background: #fffdf8;
+}
+
+.reviews-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.reviews-heading h2,
+.review-invitation h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 5vw, 48px);
+    color: var(--green);
+    margin: 12px 0;
+}
+
+.reviews-heading p:not(.section-label),
+.review-invitation p:not(.section-label) {
+    color: #777064;
+    line-height: 1.7;
+}
+
+.reviews-grid {
+    max-width: 1050px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+}
+
+.review-card {
+    background: #fff;
+    padding: 14px;
+    border: 1px solid #d8bd87;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(18, 61, 48, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 32px rgba(18, 61, 48, 0.13);
+}
+
+.review-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 480px;
+    object-fit: contain;
+    border-radius: 6px;
+}
+
+.review-invitation {
+    text-align: center;
+    padding: 75px 20px;
+    background: var(--cream);
+}
+
+.review-invitation p:not(.section-label) {
+    max-width: 550px;
+    margin: 0 auto 25px;
+}
+
+/* Mobile layout */
+
+@media (max-width: 650px) {
+    .reviews-hero {
+        padding: 75px 20px 55px;
+    }
+
+    .reviews-section {
+        padding: 55px 6%;
+    }
+
+    .reviews-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .review-card {
+        padding: 10px;
+    }
+
+    .review-invitation {
+        padding: 55px 20px;
+    }
+}
+
+/* ==============================
+   CONTACT & BOOKING SECTION
+============================== */
+
+.contact-section {
+    padding: 90px 20px;
+    background: var(--green);
+    text-align: center;
+}
+
+.contact-content {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.contact-section .section-label {
+    color: #d8bd87;
+}
+
+.contact-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 5vw, 55px);
+    color: var(--cream);
+    margin: 15px 0;
+}
+
+.contact-description {
+    color: #e6e1d6;
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 35px;
+}
+
+.contact-btn {
+    display: inline-block;
+    padding: 14px 24px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.whatsapp-btn {
+    background: #238b55;
+    color: white;
+}
+
+.instagram-btn {
+    background: #b64b78;
+    color: white;
+}
+
+.call-btn {
+    background: var(--gold);
+    color: #183b30;
+}
+
+.email-btn {
+    background: var(--cream);
+    color: var(--green);
+}
+
+.contact-btn:hover {
+    transform: translateY(-4px);
+    opacity: 0.9;
+}
+
+.contact-details {
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 22px;
+    color: #e6e1d6;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.contact-details p {
+    margin: 5px 0;
+}
+
+@media (max-width: 600px) {
+    .contact-section {
+        padding: 65px 20px;
+    }
+
+    .contact-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .contact-btn {
+        text-align: center;
+        padding: 15px;
+    }
+}
+
+/* =================================
+   INTERACTIVE PHOTO VIEWER
+================================= */
+
+#lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(10, 15, 12, 0.96);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 65px 20px 100px;
+}
+
+#lightbox.active {
+    display: flex;
+}
+
+#lightbox-image {
+    display: block;
+    max-width: 90%;
+    max-height: 78vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 5px;
+    transition: transform 0.25s ease;
+    transform-origin: center center;
+    cursor: zoom-in;
+    touch-action: pan-y;
+}
+
+#lightbox-image.zoomed {
+    cursor: zoom-out;
+}
+
+#lightbox-close {
+    position: absolute;
+    top: 18px;
+    right: 25px;
+    z-index: 10;
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    font-size: 27px;
+    cursor: pointer;
+}
+
+.lightbox-controls {
+    position: absolute;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    width: max-content;
+    max-width: 95%;
+    padding: 10px 15px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 40px;
+    backdrop-filter: blur(10px);
+}
+
+.lightbox-controls button {
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: #f4ead8;
+    color: #123D30;
+    font-size: 21px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.lightbox-controls button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.lightbox-counter {
+    color: white;
+    font-size: 14px;
+    min-width: 42px;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+
+    #lightbox {
+        padding: 65px 8px 90px;
+    }
+
+    #lightbox-image {
+        max-width: 96%;
+        max-height: 75vh;
+    }
+
+    .lightbox-controls {
+        bottom: 18px;
+        gap: 9px;
+        padding: 8px 11px;
+    }
+
+    .lightbox-controls button {
+        width: 39px;
+        height: 39px;
+        font-size: 19px;
+    }
+
+    #lightbox-close {
+        top: 12px;
+        right: 14px;
+    }
+}
+
+/* Floating WhatsApp Booking Button */
+.floating-whatsapp {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    width: 58px;
+    height: 58px;
+    background: #16834a;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    text-decoration: none;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.25);
+    z-index: 9999;
+    transition: transform 0.3s ease;
+}
+
+.floating-whatsapp:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 600px) {
+    .floating-whatsapp {
+        width: 54px;
+        height: 54px;
+        right: 16px;
+        bottom: 16px;
+    }
+}
